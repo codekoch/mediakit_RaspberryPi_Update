@@ -46,12 +46,15 @@ echo "usbDevice="$usbDevice
 mkdir /media/pi/usbImage
 sudo mount $usbDevice /media/pi/usbImage
 usb="0"
+sudo touch /$path/update.txt
+sudo chmod 777 /$path/update.txt
+
 if [ -e /media/pi/usbImage/$file ]; then
    green_msg "Found mediakit image file on USB drive!"
    usb="1"
    green_msg "USB" > /$path/update.txt
 else
-  soud umount $usbDevice
+  sudo umount $usbDevice
 fi
 ###
 if ! [ -e $path/update.txt ]; then
@@ -128,6 +131,8 @@ if  [ $usb != "0" ]; then
   sudo rm -R /media/pi/berryboot/data/$file
   ### Set new Image as default system
   sudo rm /media/pi/berryboot/data/default
+  sudo touch /media/pi/berryboot/data/default
+  sudo chmo 777 /media/pi/berryboot/data/default
   echo "$file" > /media/pi/berryboot/data/default
   ### Reboot into new Image
   sudo umount $usbDevice
