@@ -132,7 +132,7 @@ if  [ $usb != "0" ]; then
   ### Set new Image as default system
   sudo rm /media/pi/berryboot/data/default
   sudo touch /media/pi/berryboot/data/default
-  sudo chmo 777 /media/pi/berryboot/data/default
+  sudo chmod 777 /media/pi/berryboot/data/default
   echo "$file" > /media/pi/berryboot/data/default
   ### Reboot into new Image
   sudo umount $usbDevice
