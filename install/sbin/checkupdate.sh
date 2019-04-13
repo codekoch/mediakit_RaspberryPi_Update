@@ -2,7 +2,10 @@
 ## checkupdatescript for update system image
 ### Settings
 ### Path to image location
-if !  [ -d "/media/pi/berryboot/data/FILES" ]; then
+if ! [ -d "/media/pi/berryboot/data" ]; then
+  sudo mkdir /media/pi/berryboot/data
+fi 
+if ! [ -d "/media/pi/berryboot/data/FILES" ]; then
   sudo mkdir /media/pi/berryboot/data/FILES
 fi
 path="/media/pi/berryboot/data/FILES"
