@@ -29,6 +29,7 @@ echo -e "\\033[34;1m${@}\033[0m"
 }
 ### check if Image exists on USB Stick
 dataDevice="`cat /boot/cmdline.txt | awk -F'datadev=' '{print $2}' | awk '{print $1}'`"
+echo "dataDevice="$dataDevice
 ### get usb-device-links
 mapfile -t usbLinks < <(ls /dev/disk/by-id | grep -i 'usb' | grep -v 'part')
 #usbLink=(`ls /dev/disk/by-id | grep -i 'usb' | grep -v 'part'`)
